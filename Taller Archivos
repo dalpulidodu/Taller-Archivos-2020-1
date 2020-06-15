@@ -1,3 +1,29 @@
+def organizar_archivo(archivo):
+     Datos={}
+     primer_dicc=""
+     contagiado=[]
+     n=1
+     try:
+          lectura=open(archivo, "r")
+          while n<=11252:
+               linea=lectura.readlines()[n]
+               primer_dicc=""
+               for i in range(0,len(linea)):
+                    if str(linea[i])!=",":
+                         primer_dicc=primer_dicc+str(linea[i])
+                    else:     
+                         contagiado.append(primer_dicc)
+                         primer_dicc=""
+               primer_dicc=primer_dicc.replace("\n", "")          
+               contagiado.append(primer_dicc)
+               Datos[n]=contagiado
+               n=n+1
+               contagiado=[]
+               lectura.seek(0)
+          lectura.close()          
+     except:
+          print("Ha ocurrido un problema, por favor descargue el archivo")
+     return Datos     
 def imprimir_menu():
   '''
   Imprime el menu
