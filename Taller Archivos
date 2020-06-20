@@ -1,3 +1,12 @@
+def sumar_localidad(diccionario):
+     datos={}
+     for i in diccionario.values():
+          if i[2] not in datos.keys():
+               datos[i[2]]=1
+          else:
+               datos[i[2]]+=1
+     print(datos)          
+     return datos
 def  contagiados_rango_fecha(dictionary, date_string_down, date_string_up):
      dictionary = dict(dictionary)
      top = date_string_up[:]
